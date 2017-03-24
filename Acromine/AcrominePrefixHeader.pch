@@ -1,0 +1,32 @@
+//
+//  AcrominePrefixHeader.pch
+//  Acromine
+//
+//  Created by Naoki Hada on 3/23/17.
+//  Copyright © 2017 Naoki Hada. All rights reserved.
+//
+
+#ifndef AcrominePrefixHeader_pch
+#define AcrominePrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#endif
+
+#define ALog(format, ...) NSLog((@"%s [L%d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+#ifdef DEBUG
+#define DLog(format, ...)  ALog(format, ##__VA_ARGS__)
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define DLog(...)
+#define NSLog(...) {}
+#endif
+
+
+#endif /* AcrominePrefixHeader_pch */
